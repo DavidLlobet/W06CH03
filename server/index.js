@@ -22,16 +22,16 @@ const initializeServer = (port) => {
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use((req, res, next) => {
-  debug("Soy el segundo middleware");
-  res.json("llegamos");
-});
-app.use("/pets", thingsIKnowRoutes);
+// app.use((req, res, next) => {
+//   debug("Soy el segundo middleware");
+//   res.json("llegamos");
+// });
+app.use("/things", thingsIKnowRoutes);
 
-app.use((req, res, next) => {
-  debug("He llegado hasta aquí");
-  next();
-});
+// app.use((req, res, next) => {
+//   debug("He llegado hasta aquí");
+//   next();
+// });
 app.use(notFoundErrorHandler);
 app.use(generalErrorHandler);
 

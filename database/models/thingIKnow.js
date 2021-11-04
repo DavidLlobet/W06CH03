@@ -7,6 +7,6 @@ const thingsIKnowSchema = new Schema({
   },
 });
 
-const ThingIknow = model("ThingIKnow", thingsIKnowSchema);
+const ThingIknow = model("ThingIKnow", thingsIKnowSchema, "ThingsIKnow");
 
 module.exports = ThingIknow;
