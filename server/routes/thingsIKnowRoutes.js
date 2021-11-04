@@ -8,10 +8,10 @@ router.get("/", async (req, res) => {
   res.json(thingsIKnow);
 });
 
-router.get("/things/:idThing", async (req, res, next) => {
-  const { id } = req.params;
+router.get("/:idThing", async (req, res, next) => {
+  const { idThing } = req.params;
   try {
-    const searchedThingIKnow = await ThingIKnow.findById(id);
+    const searchedThingIKnow = await ThingIKnow.findById(idThing);
     if (searchedThingIKnow) {
       res.json(searchedThingIKnow);
     } else {
