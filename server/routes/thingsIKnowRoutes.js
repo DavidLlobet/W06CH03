@@ -25,6 +25,23 @@ router.get("/:idThing", async (req, res, next) => {
   }
 });
 
+router.delete("/:idThing", async (req, res, next) => {
+  const { idThing } = req.params;
+  try {
+    const searchedThingIKnow = await ThingIKnow.findByIdAndDelete(idThing);
+    if (searchedThingIKnow) {
+      res.json(searchedThingIKnow);
+    } else {
+      const error = new Error("Thing I know not found");
+      error.code = 404;
+      throw error;
+    }
+  } catch (error) {
+    error.code = 400;
+    next(error);
+  }
+});
+
 router.post(
   "/new",
   (req, res, next) => {
