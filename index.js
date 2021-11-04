@@ -1,5 +1,4 @@
 require("dotenv").config();
-const inquirer = require("inquirer");
 const dataBase = require("./database/index");
 
 const initializeServer = require("./server/index");
